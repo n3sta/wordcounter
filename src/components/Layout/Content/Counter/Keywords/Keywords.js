@@ -7,7 +7,11 @@ const Wrapper = styled.div`
   padding: 15px;
   border: 1px solid #E8E9EA;
   border-radius: 5px;
-  flex-basis: 30%;
+  flex: 0 0 35%;
+
+  @media only screen and (max-width: 1200px) {
+    flex: 1 0 100%;
+  }
 `;
 
 const H4 = styled.h4`
@@ -38,13 +42,16 @@ const Li = styled.li`
   }
 `;
 
+const Span = styled.span`
+  max-width: 80%;
+  word-break: break-all;
+`;
+
 const KeywordsClass = ({ keywords = [] }) => (
   <Wrapper>
     <H4>Keywords</H4>
     <Ul>
-      {Array.from(new Set(keywords)).map(x => {
-        return <Li key={x}><span>{x}</span> <span>{keywords.filter(y => y === x).length}</span></Li>
-      })}
+      {keywords.map(x => <Li key={x.name}><Span>{x.name}</Span> <span>{x.length}</span></Li>)}
     </Ul>
   </Wrapper>
 )

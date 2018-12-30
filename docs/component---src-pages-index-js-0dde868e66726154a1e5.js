@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{138:function(e,a,t){"use strict";t.r(a);var n=t(0),c=t.n(n),l=t(150),r=t(147),o=t(149);a.default=function(){return c.a.createElement(l.a,null,c.a.createElement(r.a,{title:"Home",keywords:["gatsby","application","react"]}),c.a.createElement(o.a,null))}}}]);
-//# sourceMappingURL=component---src-pages-index-js-0dde868e66726154a1e5.js.map

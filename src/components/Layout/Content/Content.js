@@ -19,11 +19,12 @@ const CounterWrapper = styled.div`
   padding: 15px;
   border: 1px solid #E8E9EA;
   border-radius: 5px;
-  flex: 1 0 auto;
+  flex: 0 0 65%;
   margin-right: 25px;
 
   @media only screen and (max-width: 1200px) {
     margin: 0 0 25px 0;
+    flex: 1 0 100%;
   }
 `;
 
@@ -54,8 +55,21 @@ class ContentClass extends Component {
       text: value,
       wordsLength: words.length,
       charactersLength: String(value).length,
-      keywords: words
+      keywords: this.getUniques(words)
     })
+  }
+
+  getUniques(words) {
+    const uniques = []
+    words.forEach(word => {
+      if (!uniques.some(x => x.name === word)) {
+        uniques.push({
+          name: word,
+          length: words.filter(x => x === word).length
+        })
+      }
+    });
+    return uniques.sort((a,b) => b.length - a.length)
   }
 
   handleTextarea(e) {
